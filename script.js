@@ -135,27 +135,29 @@
     const placeholder = document.getElementById('logo-placeholder');
     if (!logo || !placeholder) return;
 
+    function showLogo() {
+      logo.classList.remove('is-hidden');
+      placeholder.hidden = true;
+    }
+
     function showPlaceholder() {
       logo.classList.add('is-hidden');
       placeholder.hidden = false;
     }
 
-    function hidePlaceholder() {
-      logo.classList.remove('is-hidden');
-      placeholder.hidden = true;
+    function syncLogo() {
+      if (logo.naturalWidth > 0 && logo.naturalHeight > 0) {
+        showLogo();
+      } else {
+        showPlaceholder();
+      }
     }
 
+    logo.addEventListener('load', syncLogo);
     logo.addEventListener('error', showPlaceholder);
-    logo.addEventListener('load', () => {
-      if (logo.naturalWidth > 0) hidePlaceholder();
-      else showPlaceholder();
-    });
 
-    if (!logo.complete || logo.naturalWidth === 0) {
-      const test = new Image();
-      test.onload = () => hidePlaceholder();
-      test.onerror = showPlaceholder;
-      test.src = logo.src;
+    if (logo.complete) {
+      syncLogo();
     }
   }
 

@@ -26,7 +26,10 @@ A minimal, premium static landing page for the **Mew** brand. Built with vanilla
         ├── rent-x.png            ← Rent X card
         ├── mew-mm.png            ← Mew MM card
         └── mew-coin.png          ← Mew Coin card
+        └── .gitkeep              ← Optional; keeps folder in Git when empty
 ```
+
+> **About `.gitkeep`:** A tiny placeholder file so Git tracks the `images/` folder even when it's empty. Once your images are uploaded, you can safely delete it — it has no effect on the website.
 
 ---
 
