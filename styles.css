@@ -28,7 +28,6 @@
   --font-display: 'Nunito', system-ui, sans-serif;
 
   --cat-glow: rgba(42, 171, 238, 0.18);
-  --cat-whisker: rgba(42, 171, 238, 0.06);
 
   --nav-height: 64px;
   --transition: 0.25s ease;
@@ -106,23 +105,6 @@ body::before {
   pointer-events: none;
 }
 
-/* Subtle whisker lines — ambient cat detail */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.5;
-  background:
-    linear-gradient(118deg, transparent 48%, var(--cat-whisker) 49%, var(--cat-whisker) 49.3%, transparent 50%),
-    linear-gradient(62deg, transparent 48%, var(--cat-whisker) 49%, var(--cat-whisker) 49.3%, transparent 50%),
-    linear-gradient(122deg, transparent 68%, var(--cat-whisker) 69%, var(--cat-whisker) 69.3%, transparent 70%),
-    linear-gradient(58deg, transparent 68%, var(--cat-whisker) 69%, var(--cat-whisker) 69.3%, transparent 70%);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-
 /* ============================================
    Paw Print Ambient Animation
    ============================================ */
@@ -180,6 +162,34 @@ body::after {
   transform: rotate(5deg);
 }
 
+.paw--6 {
+  left: 48%;
+  top: 12%;
+  animation: pawWalk2 30s linear infinite 6s;
+  transform: rotate(-12deg);
+}
+
+.paw--7 {
+  left: 68%;
+  top: 48%;
+  animation: pawWalk4 29s linear infinite 10s;
+  transform: rotate(8deg);
+}
+
+.paw--8 {
+  left: 8%;
+  top: 42%;
+  animation: pawWalk3 31s linear infinite 14s;
+  transform: rotate(-6deg);
+}
+
+.paw--9 {
+  left: 88%;
+  top: 28%;
+  animation: pawWalk1 27s linear infinite 18s;
+  transform: rotate(12deg);
+}
+
 @keyframes pawWalk1 {
   0%   { opacity: 0; transform: translate(0, 0) rotate(0deg); }
   5%   { opacity: 0.35; }
@@ -221,9 +231,7 @@ body::after {
 }
 
 @media (max-width: 768px) {
-  .paw--mobile-hide,
-  .paw--4,
-  .paw--3 {
+  .paw--desktop-only {
     display: none;
   }
 
